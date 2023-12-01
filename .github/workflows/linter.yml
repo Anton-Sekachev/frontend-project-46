@@ -13,7 +13,7 @@
         run: make install
       - name: use eslint
         run: make lint
-      - run: make test
+      # - run: make test
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v3.0.0
         env:
