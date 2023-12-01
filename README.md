@@ -7,6 +7,35 @@
 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/05fe2d1d3c6f3f3637e5/test_coverage)](https://codeclimate.com/github/Anton-Sekachev/frontend-project-46/test_coverage)
 
+## This is a CLI utility tool capable of finding difference between two files.
+#### Requirements:
+* Unix-like system
+* Node.js v20+
+
+#### Info:
+* Supports .json, .yaml and .yml file formats
+* Supports absolute and relative paths
+* Can output difference in "stylish", "plain" or "json" formats
+
+### Commands
+#### Installation:
+```
+git clone https://github.com/Anton-Sekachev/frontend-project-46
+cd frontend-project-46
+make install
+npm link
+```
+#### Instruction:
+```
+Usage: gendiff [options] <filepath1> <filepath2>
+
+Compares two configuration files and shows a difference.
+
+Options:
+-V, --version         output the version number
+-f, --format <type>   output format
+-h, --help            display help for command
+
 ### Asciinema of gendiff for flat JSON files
 [![asciicast](https://asciinema.org/a/goKuQXnnQ6oEAVG5yOvTCsDgw.svg)](https://asciinema.org/a/goKuQXnnQ6oEAVG5yOvTCsDgw)
 
