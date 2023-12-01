@@ -35,6 +35,7 @@ Options:
 -V, --version         output the version number
 -f, --format <type>   output format
 -h, --help            display help for command
+```
 
 ### Asciinema of gendiff for flat JSON files
 [![asciicast](https://asciinema.org/a/goKuQXnnQ6oEAVG5yOvTCsDgw.svg)](https://asciinema.org/a/goKuQXnnQ6oEAVG5yOvTCsDgw)
