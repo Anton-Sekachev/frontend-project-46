@@ -4,7 +4,7 @@
   "bin": {
     "gendiff": "bin/gendiff.js"
   },
-  "description": "[![Actions Status](https://github.com/Anton-Sekachev/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Anton-Sekachev/frontend-project-46/actions)",
+  "description": "This is a CLI utility tool capable of finding difference between two files",
   "main": "src/index.js",
   "scripts": {
     "test": "npx jest"
