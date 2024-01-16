@@ -1,14 +1,14 @@
 import yaml from 'js-yaml';
 
-const parser = (file, type) => {
+const parse = (data, type) => {
   switch (type) {
     case 'yml':
     case 'yaml':
-      return yaml.load(file);
+      return yaml.load(data);
     case 'json':
     default:
-      return JSON.parse(file);
+      return JSON.parse(data);
   }
 };
 
-export default parser;
+export default parse;
