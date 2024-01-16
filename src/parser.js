@@ -1,6 +1,6 @@
 import yaml from 'js-yaml';
 
-const parse = (data, type) => {
+const makeParse = (data, type) => {
   switch (type) {
     case 'yml':
     case 'yaml':
@@ -11,4 +11,4 @@ const parse = (data, type) => {
   }
 };
 
-export default parse;
+export default makeParse;
