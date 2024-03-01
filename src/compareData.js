@@ -1,11 +1,9 @@
 import _ from 'lodash';
 
 const compareData = (obj1, obj2) => {
-  const getChildren = (obj) => Object.keys(obj);
-  const childrenObj1 = getChildren(obj1);
-  const childrenObj2 = getChildren(obj2);
-  const childrenMass = childrenObj1.concat(childrenObj2);
-  const last = childrenMass.filter((child, index) => childrenMass.indexOf(child) === index);
+  const getKeys = (obj) => Object.keys(obj);
+  const keysMass = getKeys(obj1).concat(getKeys(obj2));
+  const last = keysMass.filter((child, index) => keysMass.indexOf(child) === index);
   const final = _.sortBy(last);
   return final.map((key) => {
     const obj1HasKey = Object.getOwnPropertyDescriptor(obj1, key);
