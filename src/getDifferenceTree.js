@@ -45,30 +45,30 @@ const getDifferenceTree = (obj1, obj2) => {
         children: value2,
       };
     } if (obj1HasKey && obj2HasKey) {
-      if (value1 === value2) {
+      if (obj1[key] === obj2[key]) {
         return {
           type: 'stay same',
           key,
-          children: value1,
+          children: obj1[key],
         };
       }
       return {
         type: 'diffValue',
         key,
-        children: value1,
-        children2: value2,
+        children: obj1[key],
+        children2: obj2[key],
       };
     } if (obj1HasKey && !obj2HasKey) {
       return {
         type: 'deleted',
         key,
-        children: value1,
+        children: obj1[key],
       };
     }
     return {
       type: 'added',
       key,
-      children: value2,
+      children: obj2[key],
     };
   });
 };
