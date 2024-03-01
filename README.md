@@ -38,7 +38,7 @@ Options:
 ```
 
 ### Asciinema of gendiff for flat JSON files
-[![asciicast](https://asciinema.org/a/goKuQXnnQ6oEAVG5yOvTCsDgw.svg)](https://asciinema.org/a/goKuQXnnQ6oEAVG5yOvTCsDgw)
+[![asciicast](https://asciinema.org/a/PVXkRqOfbEdspm7eJUtdU9vCW.svg)](https://asciinema.org/a/PVXkRqOfbEdspm7eJUtdU9vCW)
 
 ### Asciinema of gendiff for flat YML files
 [![asciicast](https://asciinema.org/a/qQ0r0IDnWmEh8xTqY1llx3kgf.svg)](https://asciinema.org/a/qQ0r0IDnWmEh8xTqY1llx3kgf)
