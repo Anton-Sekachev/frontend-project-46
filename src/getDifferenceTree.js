@@ -1,22 +1,22 @@
 import _ from 'lodash';
 
-const compareData = (obj1, obj2) => {
+const getDifferenceTree = (obj1, obj2) => {
   const getKeys = (obj) => Object.keys(obj);
   const keysMass = getKeys(obj1).concat(getKeys(obj2));
   const last = keysMass.filter((child, index) => keysMass.indexOf(child) === index);
   const final = _.sortBy(last);
   return final.map((key) => {
-    const obj1HasKey = Object.getOwnPropertyDescriptor(obj1, key);
-    const obj2HasKey = Object.getOwnPropertyDescriptor(obj2, key);
     const value1 = obj1[key];
     const value2 = obj2[key];
-    const obj1KeyIsObject = (typeof value1 === 'object' && value1 !== null && !Array.isArray(value1));
-    const obj2KeyIsObject = (typeof value2 === 'object' && value2 !== null && !Array.isArray(value2));
+    const obj1HasKey = _.has(obj1, key);
+    const obj2HasKey = _.has(obj2, key);
+    const obj1KeyIsObject = _.isPlainObject(value1);
+    const obj2KeyIsObject = _.isPlainObject(value2);
     if (obj1HasKey && obj2HasKey && obj1KeyIsObject && obj2KeyIsObject) {
       return {
         type: 'parent',
         key,
-        children: compareData(value1, value2),
+        children: getDifferenceTree(value1, value2),
       };
     } if (obj1HasKey && obj2HasKey && obj1KeyIsObject && !obj2KeyIsObject) {
       return {
@@ -72,4 +72,4 @@ const compareData = (obj1, obj2) => {
     };
   });
 };
-export default compareData;
+export default getDifferenceTree;

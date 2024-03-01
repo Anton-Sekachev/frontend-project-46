@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import compareData from './compareData.js';
+import getDifferenceTree from './getDifferenceTree.js';
 import makeParse from './parser.js';
 import getFormat from './formatters/index.js';
 
@@ -21,7 +21,7 @@ const getData = (filepath1, filepath2) => {
 
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const { parsedFile1, parsedFile2 } = getData(filepath1, filepath2);
-  const differences = getFormat(compareData(parsedFile1, parsedFile2), formatName);
+  const differences = getFormat(getDifferenceTree(parsedFile1, parsedFile2), formatName);
   return differences;
 };
 
