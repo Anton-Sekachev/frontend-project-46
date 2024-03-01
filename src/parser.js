@@ -6,8 +6,9 @@ const makeParse = (data, type) => {
     case 'yaml':
       return yaml.load(data);
     case 'json':
-    default:
       return JSON.parse(data);
+    default:
+      throw new Error(`Format ${type} is not supported!`);
   }
 };
 
