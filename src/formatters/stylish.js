@@ -11,7 +11,7 @@ const makeString = (value, depth) => {
   return `{\n${result.join('\n')}\n  ${getIndent(depth)}}`;
 };
 
-const goodView = (array) => {
+const makeGoodView = (array) => {
   const iter = (node, depth = 1) => {
     const result = node.map((element) => {
       if (element.type === 'parent') {
@@ -33,4 +33,4 @@ const goodView = (array) => {
   };
   return `{\n${iter(array)}\n}`;
 };
-export default goodView;
+export default makeGoodView;

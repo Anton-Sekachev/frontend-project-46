@@ -1,12 +1,12 @@
-import goodView from './stylish.js';
+import makeGoodView from './stylish.js';
 import plain from './plain.js';
 
 const getFormat = (data, format) => {
   switch (format) {
     case 'stylish':
-      return goodView(data, 0);
+      return makeGoodView(data);
     case 'json':
-      return JSON.stringify(data);
+      return JSON.stringify(data, null, 2);
     case 'plain':
       return plain(data);
     default:

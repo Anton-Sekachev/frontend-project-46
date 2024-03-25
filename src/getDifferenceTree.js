@@ -2,10 +2,13 @@ import _ from 'lodash';
 
 const getDifferenceTree = (obj1, obj2) => {
   const getKeys = (obj) => Object.keys(obj);
-  const keysMass = getKeys(obj1).concat(getKeys(obj2));
-  const last = keysMass.filter((child, index) => keysMass.indexOf(child) === index);
-  const final = _.sortBy(last);
-  return final.map((key) => {
+  const keysMass = _.union(getKeys(obj1), getKeys(obj2));
+  const last = _.sortBy(keysMass);
+  return last.map((key) => {
+  // const keysMass = getKeys(obj1).concat(getKeys(obj2));
+  // const last = keysMass.filter((child, index) => keysMass.indexOf(child) === index);
+  // const final = _.sortBy(last);
+  // return final.map((key) => {
     const value1 = obj1[key];
     const value2 = obj2[key];
     const obj1HasKey = _.has(obj1, key);
