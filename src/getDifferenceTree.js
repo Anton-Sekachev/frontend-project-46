@@ -19,53 +19,53 @@ const getDifferenceTree = (obj1, obj2) => {
       return {
         type: 'diffValue',
         key,
-        children: obj1[key],
-        children2: obj2[key],
+        oldValue: obj1[key],
+        newValue: obj2[key],
       };
     } if (obj1HasKey && obj2HasKey && !obj1KeyIsObject && obj2KeyIsObject) {
       return {
         type: 'diffValue',
         key,
-        children: obj1[key],
-        children2: obj2[key],
+        oldValue: obj1[key],
+        newValue: obj2[key],
       };
     } if (obj1HasKey && !obj2HasKey && obj1KeyIsObject) {
       return {
         type: 'deleted',
         key,
-        children: obj1[key],
+        oldValue: obj1[key],
       };
     } if (!obj1HasKey && obj2HasKey && obj2KeyIsObject) {
       return {
         type: 'added',
         key,
-        children: obj2[key],
+        oldValue: obj2[key],
       };
     } if (obj1HasKey && obj2HasKey) {
       if (obj1[key] === obj2[key]) {
         return {
           type: 'stay same',
           key,
-          children: obj1[key],
+          oldValue: obj1[key],
         };
       }
       return {
         type: 'diffValue',
         key,
-        children: obj1[key],
-        children2: obj2[key],
+        oldValue: obj1[key],
+        newValue: obj2[key],
       };
     } if (obj1HasKey && !obj2HasKey) {
       return {
         type: 'deleted',
         key,
-        children: obj1[key],
+        oldValue: obj1[key],
       };
     }
     return {
       type: 'added',
       key,
-      children: obj2[key],
+      oldValue: obj2[key],
     };
   });
 };

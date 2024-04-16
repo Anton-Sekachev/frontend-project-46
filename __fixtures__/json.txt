@@ -6,33 +6,33 @@
       {
         "type": "added",
         "key": "follow",
-        "children": false
+        "oldValue": false
       },
       {
         "type": "stay same",
         "key": "setting1",
-        "children": "Value 1"
+        "oldValue": "Value 1"
       },
       {
         "type": "deleted",
         "key": "setting2",
-        "children": 200
+        "oldValue": 200
       },
       {
         "type": "diffValue",
         "key": "setting3",
-        "children": true,
-        "children2": null
+        "oldValue": true,
+        "newValue": null
       },
       {
         "type": "added",
         "key": "setting4",
-        "children": "blah blah"
+        "oldValue": "blah blah"
       },
       {
         "type": "added",
         "key": "setting5",
-        "children": {
+        "oldValue": {
           "key5": "value5"
         }
       },
@@ -47,20 +47,20 @@
               {
                 "type": "diffValue",
                 "key": "wow",
-                "children": "",
-                "children2": "so much"
+                "oldValue": "",
+                "newValue": "so much"
               }
             ]
           },
           {
             "type": "stay same",
             "key": "key",
-            "children": "value"
+            "oldValue": "value"
           },
           {
             "type": "added",
             "key": "ops",
-            "children": "vops"
+            "oldValue": "vops"
           }
         ]
       }
@@ -73,28 +73,28 @@
       {
         "type": "diffValue",
         "key": "baz",
-        "children": "bas",
-        "children2": "bars"
+        "oldValue": "bas",
+        "newValue": "bars"
       },
       {
         "type": "stay same",
         "key": "foo",
-        "children": "bar"
+        "oldValue": "bar"
       },
       {
         "type": "diffValue",
         "key": "nest",
-        "children": {
+        "oldValue": {
           "key": "value"
         },
-        "children2": "str"
+        "newValue": "str"
       }
     ]
   },
   {
     "type": "deleted",
     "key": "group2",
-    "children": {
+    "oldValue": {
       "abc": 12345,
       "deep": {
         "id": 45
@@ -104,7 +104,7 @@
   {
     "type": "added",
     "key": "group3",
-    "children": {
+    "oldValue": {
       "deep": {
         "id": {
           "number": 45

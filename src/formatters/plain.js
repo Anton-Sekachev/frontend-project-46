@@ -20,10 +20,10 @@ const plain = (array, accum = '') => {
       return `Property '${accum + obj.key}' was removed`;
     }
     if (obj.type === 'added') {
-      return `Property '${accum + obj.key}' was added with value: ${addChild(obj.children)}`;
+      return `Property '${accum + obj.key}' was added with value: ${addChild(obj.oldValue)}`;
     }
     if (obj.type === 'diffValue') {
-      return `Property '${accum + obj.key}' was updated. From ${addChild(obj.children)} to ${addChild(obj.children2)}`;
+      return `Property '${accum + obj.key}' was updated. From ${addChild(obj.oldValue)} to ${addChild(obj.newValue)}`;
     }
     return null;
   });
