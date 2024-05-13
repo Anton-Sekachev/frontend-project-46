@@ -6,17 +6,17 @@
       {
         "type": "added",
         "key": "follow",
-        "oldValue": false
+        "value": false
       },
       {
         "type": "stay same",
         "key": "setting1",
-        "oldValue": "Value 1"
+        "value": "Value 1"
       },
       {
         "type": "deleted",
         "key": "setting2",
-        "oldValue": 200
+        "value": 200
       },
       {
         "type": "diffValue",
@@ -27,12 +27,12 @@
       {
         "type": "added",
         "key": "setting4",
-        "oldValue": "blah blah"
+        "value": "blah blah"
       },
       {
         "type": "added",
         "key": "setting5",
-        "oldValue": {
+        "value": {
           "key5": "value5"
         }
       },
@@ -55,12 +55,12 @@
           {
             "type": "stay same",
             "key": "key",
-            "oldValue": "value"
+            "value": "value"
           },
           {
             "type": "added",
             "key": "ops",
-            "oldValue": "vops"
+            "value": "vops"
           }
         ]
       }
@@ -79,7 +79,7 @@
       {
         "type": "stay same",
         "key": "foo",
-        "oldValue": "bar"
+        "value": "bar"
       },
       {
         "type": "diffValue",
@@ -94,7 +94,7 @@
   {
     "type": "deleted",
     "key": "group2",
-    "oldValue": {
+    "value": {
       "abc": 12345,
       "deep": {
         "id": 45
@@ -104,7 +104,7 @@
   {
     "type": "added",
     "key": "group3",
-    "oldValue": {
+    "value": {
       "deep": {
         "id": {
           "number": 45

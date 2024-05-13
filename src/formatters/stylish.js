@@ -18,13 +18,13 @@ const makeGoodView = (array) => {
         return `${getIndent(depth)}  ${element.key}: {\n${iter(element.children, depth + 1)}\n${getIndent(depth)}  }`;
       }
       if (element.type === 'stay same') {
-        return `${getIndent(depth)}  ${element.key}: ${makeString(element.oldValue, depth)}`;
+        return `${getIndent(depth)}  ${element.key}: ${makeString(element.value, depth)}`;
       }
       if (element.type === 'deleted') {
-        return `${getIndent(depth)}- ${element.key}: ${makeString(element.oldValue, depth)}`;
+        return `${getIndent(depth)}- ${element.key}: ${makeString(element.value, depth)}`;
       }
       if (element.type === 'added') {
-        return `${getIndent(depth)}+ ${element.key}: ${makeString(element.oldValue, depth)}`;
+        return `${getIndent(depth)}+ ${element.key}: ${makeString(element.value, depth)}`;
       }
       return `${getIndent(depth)}- ${element.key}: ${makeString(element.oldValue, depth)}\n${getIndent(depth)}+ ${element.key}: ${makeString(element.newValue, depth)}`;
     });

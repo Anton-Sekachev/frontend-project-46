@@ -42,7 +42,7 @@ const getDifferenceTree = (obj1, obj2) => {
       return {
         type: 'deleted',
         key,
-        oldValue: obj1[key],
+        value: obj1[key],
       };
     }
     if (!_.has(obj1, key)
@@ -51,7 +51,7 @@ const getDifferenceTree = (obj1, obj2) => {
       return {
         type: 'added',
         key,
-        oldValue: obj2[key],
+        value: obj2[key],
       };
     }
 
@@ -60,7 +60,7 @@ const getDifferenceTree = (obj1, obj2) => {
         return {
           type: 'deleted',
           key,
-          oldValue: obj1[key],
+          value: obj1[key],
         };
       }
 
@@ -68,7 +68,7 @@ const getDifferenceTree = (obj1, obj2) => {
         return {
           type: 'stay same',
           key,
-          oldValue: obj1[key],
+          value: obj1[key],
         };
       }
 
@@ -83,7 +83,7 @@ const getDifferenceTree = (obj1, obj2) => {
     return {
       type: 'added',
       key,
-      oldValue: obj2[key],
+      value: obj2[key],
     };
   });
 };
