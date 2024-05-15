@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import getDifferenceTree from './getDifferenceTree.js';
 import makeParse from './parser.js';
-import getFormat from './formatters/index.js';
+import format from './formatters/index.js';
 
 const getPath = (way) => path.resolve(process.cwd(), way);
 
@@ -16,7 +16,7 @@ const getData = (filepath) => {
 const genDiff = (filepath1, filepath2, formatName = 'stylish') => {
   const parsedFile1 = getData(filepath1);
   const parsedFile2 = getData(filepath2);
-  const differences = getFormat(getDifferenceTree(parsedFile1, parsedFile2), formatName);
+  const differences = format(getDifferenceTree(parsedFile1, parsedFile2), formatName);
   return differences;
 };
 

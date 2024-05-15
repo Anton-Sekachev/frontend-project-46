@@ -1,8 +1,8 @@
 import makeGoodView from './stylish.js';
 import plain from './plain.js';
 
-const getFormat = (data, format) => {
-  switch (format) {
+const format = (data, fileFormat) => {
+  switch (fileFormat) {
     case 'stylish':
       return makeGoodView(data);
     case 'json':
@@ -10,8 +10,8 @@ const getFormat = (data, format) => {
     case 'plain':
       return plain(data);
     default:
-      throw new Error(`${format} is not supported`);
+      throw new Error(`${fileFormat} is not supported`);
   }
 };
 
-export default getFormat;
+export default format;
