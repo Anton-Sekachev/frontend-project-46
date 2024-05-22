@@ -11,7 +11,7 @@ const makeString = (value, depth) => {
   return `{\n${result.join('\n')}\n  ${getIndent(depth)}}`;
 };
 
-const makeGoodView = (array) => {
+const makeStylish = (array) => {
   const iter = (node, depth = 1) => {
     const result = node.map((element) => {
       if (element.type === 'parent') {
@@ -33,4 +33,4 @@ const makeGoodView = (array) => {
   };
   return `{\n${iter(array)}\n}`;
 };
-export default makeGoodView;
+export default makeStylish;
