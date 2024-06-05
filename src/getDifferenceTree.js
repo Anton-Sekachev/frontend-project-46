@@ -1,53 +1,11 @@
 import _ from 'lodash';
 
 const getDifferenceTree = (obj1, obj2) => {
-  const getKeys = (obj) => Object.keys(obj);
-  const keysMass = _.union(getKeys(obj1), getKeys(obj2));
-  const last = _.sortBy(keysMass);
-  return last.map((key) => {
-    if (
-      _.has(obj1, key)
-      && _.has(obj2, key)
-      && _.isPlainObject(obj1[key])
-      && _.isPlainObject(obj2[key])
-    ) {
-      return {
-        type: 'parent',
-        key,
-        children: getDifferenceTree(obj1[key], obj2[key]),
-      };
-    }
+  const keys = _.union(Object.keys(obj1), Object.keys(obj2));
 
-    if (
-      (_.has(obj1, key)
-        && _.has(obj2, key)
-        && _.isPlainObject(obj1[key])
-        && !_.isPlainObject(obj2[key]))
-      || (_.has(obj1, key)
-        && _.has(obj2, key)
-        && !_.isPlainObject(obj1[key])
-        && _.isPlainObject(obj2[key]))
-    ) {
-      return {
-        type: 'diffValue',
-        key,
-        oldValue: obj1[key],
-        newValue: obj2[key],
-      };
-    }
-
-    if (_.has(obj1, key)
-     && !_.has(obj2, key)
-     && _.isPlainObject(obj1[key])) {
-      return {
-        type: 'deleted',
-        key,
-        value: obj1[key],
-      };
-    }
-    if (!_.has(obj1, key)
-     && _.has(obj2, key)
-     && _.isPlainObject(obj2[key])) {
+  const sortedKeys = _.sortBy(keys);
+  const diff = sortedKeys.map((key) => {
+    if (!_.has(obj1, key)) {
       return {
         type: 'added',
         key,
@@ -55,23 +13,22 @@ const getDifferenceTree = (obj1, obj2) => {
       };
     }
 
-    if (_.has(obj1, key)) {
-      if (!_.has(obj2, key)) {
-        return {
-          type: 'deleted',
-          key,
-          value: obj1[key],
-        };
-      }
+    if (!_.has(obj2, key)) {
+      return {
+        type: 'deleted',
+        key,
+        value: obj1[key],
+      };
+    }
 
-      if (obj1[key] === obj2[key]) {
-        return {
-          type: 'stay same',
-          key,
-          value: obj1[key],
-        };
-      }
-
+    if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
+      return {
+        type: 'parent',
+        key,
+        children: getDifferenceTree(obj1[key], obj2[key]),
+      };
+    }
+    if (!_.isEqual(obj1[key], obj2[key])) {
       return {
         type: 'diffValue',
         key,
@@ -81,10 +38,13 @@ const getDifferenceTree = (obj1, obj2) => {
     }
 
     return {
-      type: 'added',
+      type: 'stay same',
       key,
       value: obj2[key],
     };
   });
+
+  return diff;
 };
+
 export default getDifferenceTree;
